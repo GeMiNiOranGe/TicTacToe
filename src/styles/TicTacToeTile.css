@@ -1,0 +1,12 @@
+.tile {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: calc(56px + 2vmin);
+  font-family: monospace;
+}

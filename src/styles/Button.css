@@ -1,0 +1,46 @@
+button {
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.25s;
+}
+
+button:before {
+  height: 200%;
+  width: 150%;
+  content: '';
+  background-color: rgb(0, 96, 255);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  top: 100%;
+  left: -25%;
+  transition: 0.15s;
+}
+
+button:hover {
+  color: #ffffff;
+}
+
+button:hover:before {
+  top: -50%;
+  left: -25%;
+}
+
+button:active:before {
+  background-color: rgb(0, 48, 255);
+}
+
+button span {
+  font-family: inherit;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}

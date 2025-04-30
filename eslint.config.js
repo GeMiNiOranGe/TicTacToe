@@ -23,6 +23,13 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      curly: 'error',
+      camelcase: ['error'],
+      eqeqeq: ['error', 'smart'],
+      'no-console': 'error',
+      '@typescript-eslint/no-unused-vars': ['warn'],
+      '@typescript-eslint/explicit-member-accessibility': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'error',
     },
   },
 );

@@ -1,0 +1,74 @@
+@import url('global.css');
+
+.container.tic-tac-toe-page {
+  --tile-icon-size: 12vh;
+  --icon-size: 36vh;
+
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: tan;
+}
+
+.game-board {
+  width: 60vh;
+  height: 60vh;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.tile-icon {
+  filter: drop-shadow(0 0 1vh rgba(0, 0, 0, 0.75));
+  width: calc(var(--tile-icon-size));
+  height: calc(var(--tile-icon-size));
+}
+
+.turn-box {
+  height: 66vh;
+  width: 66vh;
+}
+
+.turn-icon {
+  width: calc(var(--icon-size));
+  height: calc(var(--icon-size));
+  position: relative;
+  color: lightgray;
+  transition: color 0.5s ease;
+}
+
+.turn-icon.playing {
+  animation: grow-size 0.1s forwards;
+  color: black;
+}
+
+.turn-icon:not(.playing) {
+  animation: shrink-size 0.025s forwards;
+}
+
+@keyframes grow-size {
+  0% {
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shrink-size {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+  }
+}
+
+.button-box {
+  margin: 1rem 0;
+  display: flex;
+}
+
+.button:not(:last-child) {
+  margin-right: 0.5rem;
+}
