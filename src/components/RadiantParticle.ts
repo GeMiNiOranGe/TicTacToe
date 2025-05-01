@@ -1,19 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import { Particle } from '@/services';
 import type { RadiantParticleProps } from '@/types';
 
 // Thanks ChatGPT for this component
-function RadiantParticle({
+const RadiantParticle: React.FC<RadiantParticleProps> = ({
   width,
   height,
   speed = 2,
   size = 2,
   numberOfParticles = 5,
-}: RadiantParticleProps): React.JSX.Element {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+}) => {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) {
       return;
@@ -35,7 +35,7 @@ function RadiantParticle({
 
     const particles: Particle[] = [];
 
-    function animate(): void {
+    const animate = (): void => {
       if (!canvas || !ctx) {
         return;
       }
@@ -48,9 +48,9 @@ function RadiantParticle({
         }
       }
       requestAnimationFrame(animate);
-    }
+    };
 
-    function createParticles(): void {
+    const createParticles = (): void => {
       if (!canvas) {
         return;
       }
@@ -59,7 +59,7 @@ function RadiantParticle({
       for (let i = 0; i < numberOfParticles; i++) {
         particles.push(new Particle(centerX, centerY, size, speed));
       }
-    }
+    };
 
     const interval = setInterval(createParticles, 100);
     animate();
@@ -70,17 +70,15 @@ function RadiantParticle({
     };
   }, [width, height, size, speed, numberOfParticles]);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'absolute',
-        pointerEvents: 'none',
-        width,
-        height,
-      }}
-    />
-  );
-}
+  return React.createElement('canvas', {
+    ref: canvasRef,
+    style: {
+      position: 'absolute',
+      pointerEvents: 'none',
+      width,
+      height,
+    },
+  });
+};
 
 export default React.memo(RadiantParticle);
